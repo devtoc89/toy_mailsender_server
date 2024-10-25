@@ -40,7 +40,7 @@ src/
 
 1. 프로젝트를 클론합니다:
    ```
-   git clone [repository-url]
+   git clone [[[[repository-url]]()]()](https://github.com/devtoc89/fordeullee)
    ```
 
 2. 의존성을 설치합니다:
