@@ -53,7 +53,7 @@ jobs:
         MAIL_SENDER_PW: ${{ secrets.MAIL_SENDER_PW }}
 
     - name: Generate Environment Variables File for Production
-      run: ll
+      run: ls
     # - name: copy deploy script
     #   run: cp -f appspec.yml dist && cp -rf scripts dist
       
