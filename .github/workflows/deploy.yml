@@ -39,6 +39,18 @@ jobs:
     - name: build
       run: npm run build
       
+    - name: Generate Environment Variables File for Production
+      run: |
+        echo "AIRTABLE_API_KEY=$AIRTABLE_API_KEY" >> .env.production
+        echo "AIRTABLE_BASE_ID=$AIRTABLE_BASE_ID" >> .env.production
+        echo "MAIL_SENDER_ID=$MAIL_SENDER_ID" >> .env.production
+        echo "MAIL_SENDER_PW=$MAIL_SENDER_PW" >> .env.production
+      env:
+        AIRTABLE_API_KEY: ${{ secrets.AIRTABLE_API_KEY }}
+        AIRTABLE_BASE_ID: ${{ secrets.AIRTABLE_BASE_ID }}
+        MAIL_SENDER_ID: ${{ secrets.MAIL_SENDER_ID }}
+        MAIL_SENDER_PW: ${{ secrets.MAIL_SENDER_PW }}
+
     # - name: copy deploy script
     #   run: cp -f appspec.yml dist && cp -rf scripts dist
       
