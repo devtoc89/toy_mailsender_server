@@ -10,7 +10,7 @@ env:
   AWS_REGION: ap-northeast-2
   S3_BUCKET_NAME: f2-server-cd-bucket
   CODE_DEPLOY_APPLICATION_NAME: f2-code-deploy
-  CODE_DEPLOY_DEPLOYMENT_GROUP_NAME: f2-code-deploy-group
+  CODE_DEPLOY_DEPLOYMENT_GROUP_NAME: f2-server-code-deploy-group
 
 permissions:
   contents: read
@@ -40,7 +40,7 @@ jobs:
       run: npm run build
       
     - name: copy deploy script
-      run: cp -f appspec.yml dist && cp -rf script dist
+      run: cp -f appspec.yml dist && cp -rf scripts dist
     # (4) AWS 인증 (IAM 사용자 Access Key, Secret Key 활용)
     - name: Configure AWS credentials
       uses: aws-actions/configure-aws-credentials@v1
