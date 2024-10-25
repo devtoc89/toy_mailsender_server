@@ -5,7 +5,7 @@ DEPLOY_LOG="$PROJECT_LOG_PATH/server_deploy.log"
 TIME_NOW=$(date +%c)
 
 # build 파일 복사
-mkdir /home/ec2-user/project/log 2> dev/null
-echo "$TIME_NOW > 파일 복사" >> ../$DEPLOY_LOG
+mkdir $PROJECT_LOG_PATH 2> dev/null
+echo "$TIME_NOW > 파일 복사" >> $DEPLOY_LOG
 node main
 
