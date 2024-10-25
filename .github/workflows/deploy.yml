@@ -26,6 +26,19 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v4
       
+    - name: Generate Environment Variables File for Production
+      run: |
+        touch .env.production
+        echo "AIRTABLE_API_KEY=$AIRTABLE_API_KEY" >> .env.production
+        echo "AIRTABLE_BASE_ID=$AIRTABLE_BASE_ID" >> .env.production
+        echo "MAIL_SENDER_ID=$MAIL_SENDER_ID" >> .env.production
+        echo "MAIL_SENDER_PW=$MAIL_SENDER_PW" >> .env.production
+      env:
+        AIRTABLE_API_KEY: ${{ secrets.AIRTABLE_API_KEY }}
+        AIRTABLE_BASE_ID: ${{ secrets.AIRTABLE_BASE_ID }}
+        MAIL_SENDER_ID: ${{ secrets.MAIL_SENDER_ID }}
+        MAIL_SENDER_PW: ${{ secrets.MAIL_SENDER_PW }}
+
     - name: Set up Node.js
       uses: actions/setup-node@v4
       with:
@@ -39,18 +52,6 @@ jobs:
     - name: build
       run: npm run build
       
-    - name: Generate Environment Variables File for Production
-      run: |
-        touch .env.production
-        echo "AIRTABLE_API_KEY=$AIRTABLE_API_KEY" >> .env.production
-        echo "AIRTABLE_BASE_ID=$AIRTABLE_BASE_ID" >> .env.production
-        echo "MAIL_SENDER_ID=$MAIL_SENDER_ID" >> .env.production
-        echo "MAIL_SENDER_PW=$MAIL_SENDER_PW" >> .env.production
-      env:
-        AIRTABLE_API_KEY: ${{ secrets.AIRTABLE_API_KEY }}
-        AIRTABLE_BASE_ID: ${{ secrets.AIRTABLE_BASE_ID }}
-        MAIL_SENDER_ID: ${{ secrets.MAIL_SENDER_ID }}
-        MAIL_SENDER_PW: ${{ secrets.MAIL_SENDER_PW }}
 
       
     # (4) AWS 인증 (IAM 사용자 Access Key, Secret Key 활용)
@@ -66,7 +67,6 @@ jobs:
       run: |
         aws deploy push \
           --application-name ${{ env.CODE_DEPLOY_APPLICATION_NAME }} \
-          --ignore-hidden-files \
           --s3-location s3://$S3_BUCKET_NAME/$GITHUB_SHA.zip \
           --source .
           
