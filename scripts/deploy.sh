@@ -7,5 +7,5 @@ TIME_NOW=$(date +%c)
 # build 파일 복사
 mkdir $PROJECT_LOG_PATH 2> /dev/null
 echo "$TIME_NOW > 파일 복사" >> $DEPLOY_LOG
-node $PROJECT_ROOT/dist/main.js
-
+cd $PROJECT_ROOT
+npm run start:prod
