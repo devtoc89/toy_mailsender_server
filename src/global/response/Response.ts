@@ -1,13 +1,16 @@
-// "message": "Cannot POST /review%E3%85%81",
-// "error": "Not Found",
-// "statusCode": 404
+import { ApiProperty } from '@nestjs/swagger'
 
-export interface Response<T> {
+export class Response<T> {
+  @ApiProperty({
+    description: '결과 코드(현재 SUCCESS, FAIL만 사용)',
+  })
   code: string
+  @ApiProperty({ description: 'response data', required: false })
   data?: T
+  @ApiProperty({ description: '메세지', required: false })
   message?: string
 }
-export interface ResponseOption<T> {
+export class ResponseOption<T> {
   code?: string
   data?: T
   message?: string

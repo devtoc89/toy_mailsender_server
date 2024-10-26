@@ -28,6 +28,7 @@
     "@nestjs/config": "^3.3.0",
     "@nestjs/core": "^10.4.4",
     "@nestjs/platform-express": "^10.4.4",
+    "@nestjs/swagger": "^7.4.2",
     "airtable": "^0.12.2",
     "nodemailer": "^6.9.15",
     "reflect-metadata": "^0.2.1",
