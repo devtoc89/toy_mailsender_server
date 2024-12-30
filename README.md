@@ -4,7 +4,7 @@
 Airtable을 데이터베이스로 사용하고 이메일 알림 기능을 포함하고 있습니다.
 
 ## 프로젝트 구조
-
+```markdown
 src/
 ├── global/
 │ ├── config/
@@ -28,7 +28,7 @@ src/
 │ └── reviews.service.ts
 ├── app.module.ts
 └── main.ts
-
+```
 ## 주요 라이브러리
 
 - NestJS: ^10.3.2
