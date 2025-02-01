@@ -2,6 +2,7 @@
 
 이 프로젝트는 NestJS를 사용하여 구축된 리뷰 관리 시스템입니다. 
 Airtable을 데이터베이스로 사용하고 이메일 알림 기능을 포함하고 있습니다.
+[구성 설명:notion](https://www.notion.so/fordeullee-12b7a83f117a80a285c5d6f28d2e9df5?pvs=4)
 
 ## 프로젝트 구조
 ```markdown
